@@ -17,8 +17,10 @@ class ImageUploadController extends Controller
     //aðferð til að uploada mynd í möppu og database!
     public function upload(){
     	if(Input::hasFile('file')){ // ef notandi hefur sett inn mynd
+    		$name = Input::text('name');
     		$file = Input::file('file'); //file sett í variable
     		$file->move('uploads/images', $file->getClientOriginalName()); // mynd vistuð  í images möppu í uploads
+    		
 
 
     	}
