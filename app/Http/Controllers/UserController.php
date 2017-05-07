@@ -13,7 +13,11 @@ class UserController extends Controller
 {
     //
     public function profile(){
-    	return view('profile', array('user' => Auth::user()) );
+        $images = DB::table('images')->get();
+    	return view('profile', array(
+            'user' => Auth::user(),
+            'images' => $images
+        ));
     }
 
     public function update_avatar(Request $request){
