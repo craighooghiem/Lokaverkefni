@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('profile', 'UserController@profile');
 Route::post('profile','UserController@update_avatar');
+// Route::get('profile', 'UserController@showImages');
 
 Route::get('/home', 'HomeController@index');
 

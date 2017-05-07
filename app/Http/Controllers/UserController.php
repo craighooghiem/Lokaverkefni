@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
 use Auth; // Reference á authentication classa
 use Image; // reference á image classa
+use App\Product;
 class UserController extends Controller
 {
     //
@@ -29,5 +32,17 @@ class UserController extends Controller
  return view('profile', array('user' => Auth::user()) ); // refresh með nýrri mynd !!
 
     }
+   public function showImages(){
+    $images = DB::table('images')->get();
+    foreach($images as $image){
+        echo $image->title;
+        echo '<br>';
+        $img = $image->image;
+        $imgpath = 'uploads/images/' . $img;
+         echo '<img src="'.$imgpath. '"height="400" width="400" >';
+         echo '<br>';
+
+    }
+}
 }
 
