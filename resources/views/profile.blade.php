@@ -11,11 +11,19 @@
            <input type="file" name="avatar">
            <input type ="hidden" name="_token" value="{{csrf_token() }}">
            <input type="submit" class="pull-right btn btn-sm btn-primary">
-
-           
-
-
-
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>User Images</h2>
+            @foreach($images as $image)
+              <div class="col-md-4">
+                {{ $image->title }}
+                <br>
+                <img src="{{ url('uploads/images/'.$image->image) }}" style="height: 400px; width:400px; overflow: hidden;">
+              </div>
+            @endforeach
+        </div>
     </div>
 
 </div>
